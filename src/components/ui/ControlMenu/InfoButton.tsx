@@ -20,7 +20,7 @@ const InfoButton = () => {
     <ModalContent>
       {(onClose) => (
         <>
-          <ModalHeader className="flex flex-col gap-1">Solar System Experiment by Chris Waitt</ModalHeader>
+          <ModalHeader className="flex flex-col gap-1">Solar System</ModalHeader>
           <ModalBody>
             <p>Todo:</p>
             <ul className="text-sm">
@@ -30,7 +30,7 @@ const InfoButton = () => {
               <li>Clipping through objects</li>
               <li>Bugs</li>
             </ul>
-            <p>Read more about it on <a className="text-secondary" target="_blank" rel="noopener noreferrer" href="https://cwaitt.dev/projects/solar-system">my website</a>.</p>
+            <p>Read more about it on <a className="text-secondary" target="_blank" rel="noopener noreferrer" href="https://github.com/Vishnu-0609/NASA_SPACE_APP_CHALLENGE">Repo link</a>.</p>
           </ModalBody>
           <ModalFooter>
             <Button color="danger" variant="light" onPress={onClose}>
