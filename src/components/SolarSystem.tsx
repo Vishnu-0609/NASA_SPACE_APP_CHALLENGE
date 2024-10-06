@@ -59,7 +59,6 @@ function SolarSystem() {
           planets={planetsData}
         />
       </Canvas>
-      <SpeedControl />
       <AnimatePresence>
         <PlanetDetail />
       </AnimatePresence>
