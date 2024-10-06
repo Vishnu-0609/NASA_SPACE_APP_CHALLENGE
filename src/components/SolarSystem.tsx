@@ -7,7 +7,6 @@ import Sun from "./celestial/Sun";
 import Planet from "./celestial/Planets";
 import CameraController from "./motion/CameraController";
 import PlanetsUpdater from "./motion/PlanetsUpdater";
-import SpeedControl from "./ui/SpeedControl";
 import PlanetDetail from "./ui/PlanetDetail";
 import ControlMenu from "./ui/ControlMenu/ControlMenu";
 import SceneLighting from "./SceneLighting";

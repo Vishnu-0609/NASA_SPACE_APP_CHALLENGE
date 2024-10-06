@@ -68,12 +68,12 @@ const generateAsteroids = (number: number, isZoom: boolean): AsteroidData[] => {
 const AsteroidRing = ({ isZoom }: { isZoom: boolean }) => {
   const asteroids = useMemo(() => generateAsteroids(70, isZoom), []);
 
-  useFrame((delta:any) => {
+  useFrame((state, delta) => {
     if (!isZoom) {
       asteroids.forEach((asteroid) => {
         // Update the angle of the asteroid based on its orbit speed
         asteroid.angle += asteroid.orbitSpeed * delta;
-
+        console.log(state);
         // Calculate the updated x and z position for orbiting
         const x = Math.cos(asteroid.angle) * asteroid.distanceFromEarth;
         const z = Math.sin(asteroid.angle) * asteroid.distanceFromEarth;
