@@ -11,7 +11,6 @@ import { useSelectedPlanet } from '../../contexts/SelectedPlanetContext';
 import { useSpeedControl } from '../../contexts/SpeedControlContext';
 import { useCameraContext } from '../../contexts/CameraContext';
 import Satellite from './Satellite';
-import Moon from './Moon';
 
 type ExtendedPlanetData = PlanetData & { orbitProgress: number };
 
@@ -33,8 +32,6 @@ const Planet: React.FC<ExtendedPlanetData> = ({
   const x = Math.cos(orbitProgress) * orbitRadius;
   const z = Math.sin(orbitProgress) * orbitRadius;
   const ref = useRef<Mesh>(null);
-  const [mouseX, setMouseX] = useState(0);
-  const [mouseY, setMouseY] = useState(0);
 
   const [selectedPlanet, setSelectedPlanet] = useSelectedPlanet();
   const { overrideSpeedFactor } = useSpeedControl();
@@ -45,7 +42,7 @@ const Planet: React.FC<ExtendedPlanetData> = ({
 
   const satelitePositionX = x + Math.cos(0) * 0.2;
   const satelitePositionZ = z + Math.sin(0) * 0.3;
-  const satellitePosition = (name === 'Earth') ? [satelitePositionX,0,satelitePositionZ] : null;
+  const satellitePosition:[x:number,y:number,z:number] | null = (name === 'Earth') ? [satelitePositionX,0,satelitePositionZ] : null;
 
   const moonSpeed = 0.02; 
   const [moonOrbitProgress, setMoonOrbitProgress] = useState(0);
@@ -69,7 +66,9 @@ const Planet: React.FC<ExtendedPlanetData> = ({
   }, [x, z, name, setPlanetPosition]);
 
   const handleform = () => {
-    const selected = planets.find((planet) => planet.name === name);
+    console.log(cameraState);
+    console.log(selectedPlanet);
+    const selected = planets ? planets.find((planet) => planet.name === name) : null;
     setSelectedPlanet(selected ?? null);
     overrideSpeedFactor();
     setCameraState('ZOOMING_IN');

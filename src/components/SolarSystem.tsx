@@ -13,7 +13,6 @@ import ControlMenu from "./ui/ControlMenu/ControlMenu";
 import SceneLighting from "./SceneLighting";
 import IntroText from "./ui/IntroText";
 import AsteroidRing from "./celestial/AsteroidRing"; // Import the new AsteroidRing component
-import Satellite from "./celestial/Satellite";
 
 function SolarSystem() {
   const [planetOrbitProgress, setPlanetOrbitProgress] = useState<{
@@ -32,7 +31,7 @@ function SolarSystem() {
   return (
     <>
       <Canvas camera={{ position: [-100, 0, 100] }}>
-        <CameraController isZoom={isZoom} setIsZoom={setIsZoom} />
+        <CameraController setIsZoom={setIsZoom} />
         <SceneBackground texturePath="/images/background/stars_8k.webp" />
         <SceneLighting />
         <Sun position={[0, 0, 0]} radius={1} />
@@ -48,14 +47,12 @@ function SolarSystem() {
             tilt={planet.tilt}
             orbitSpeed={planet.orbitSpeed}
             moons={planet.moons}
-            wobble={planet.wobble}
             rings={planet.rings}
             orbitProgress={planetOrbitProgress[planet.name]}
             displayStats={planet.displayStats}
             planets={planetsData}
           />
         ))}
-        {/* Render the asteroid ring specifically around Earth */}
         <AsteroidRing isZoom={isZoom} />
         <PlanetsUpdater
           setPlanetOrbitProgress={setPlanetOrbitProgress}

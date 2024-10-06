@@ -15,12 +15,12 @@ export interface PlanetData {
     rings?: RingsData;
     orbitalPosition?: Vector3;
     displayStats: DisplayStats;
-    planets: PlanetData[];
+    planets?: PlanetData[];
 }
 
 export interface RingsData {
     texturePath: string;
-    size: [number, number];
+    size: number[];
 }
 
 export interface MoonData {

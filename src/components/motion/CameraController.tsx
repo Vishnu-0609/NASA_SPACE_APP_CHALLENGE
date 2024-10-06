@@ -9,13 +9,10 @@ import { useSelectedPlanet } from "../../contexts/SelectedPlanetContext";
 import { usePlanetPositions } from "../../contexts/PlanetPositionsContext";
 import { useCameraContext } from "../../contexts/CameraContext";
 import { useCameraSetup } from "../../hooks/useCameraSetup";
-// import planetsData from "../../lib/planetsData";
 
 const CameraController = ({
-  isZoom = false,
   setIsZoom,
 }: {
-  isZoom: boolean;
   setIsZoom: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   useCameraSetup();

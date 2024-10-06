@@ -68,7 +68,7 @@ const generateAsteroids = (number: number, isZoom: boolean): AsteroidData[] => {
 const AsteroidRing = ({ isZoom }: { isZoom: boolean }) => {
   const asteroids = useMemo(() => generateAsteroids(70, isZoom), []);
 
-  useFrame((state, delta) => {
+  useFrame((delta:any) => {
     if (!isZoom) {
       asteroids.forEach((asteroid) => {
         // Update the angle of the asteroid based on its orbit speed
